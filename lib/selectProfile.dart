@@ -9,8 +9,9 @@ class SelectProfile extends StatefulWidget {
 }
 
 class _SelectProfileState extends State<SelectProfile> {
-  bool _value = false;
-  Object? val = -1;
+  // bool _value = false;
+  Object? _value = -1;
+  Object? _groupValue = -1;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,110 +42,124 @@ class _SelectProfileState extends State<SelectProfile> {
             ),
             Padding(
               padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
-              child: Container(
-                  width: double.infinity,
-                  // height: 100,
-                  // height: double.infinity,
-                  padding: EdgeInsets.fromLTRB(10, 2, 10, 2),
-                  decoration:
-                      BoxDecoration(border: Border.all(color: Colors.black54)),
-                  child: Row(
-                    children: [
-                      Radio(
-                        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                        value: 1,
-                        groupValue: val,
-                        onChanged: (value) {
-                          setState(() {
-                            val = value;
-                          });
-                        },
-                        activeColor: Colors.deepPurple,
-                      ),
-                      Icon(
-                        Icons.home_outlined,
-                        size: 60,
-                      ),
-                      Expanded(
-                          child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+              child: InkWell(
+                  onTap: () {
+                    setState(() {
+                      _groupValue = 1;
+                    });
+                  },
+                  child: Container(
+                      width: double.infinity,
+                      // height: 100,
+                      // height: double.infinity,
+                      padding: EdgeInsets.fromLTRB(10, 2, 10, 2),
+                      decoration: BoxDecoration(
+                          border: Border.all(color: Colors.black54)),
+                      child: Row(
                         children: [
-                          Padding(
-                            // padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
-                            padding: EdgeInsets.all(5),
-                            child: Text(
-                              "Shipper",
-                              style:
-                                  TextStyle(color: Colors.black, fontSize: 16),
-                            ),
+                          Radio(
+                            materialTapTargetSize:
+                                MaterialTapTargetSize.shrinkWrap,
+                            value: 1,
+                            groupValue: _groupValue,
+                            onChanged: (newValue) {
+                              setState(() {
+                                _groupValue = newValue;
+                              });
+                            },
+                            activeColor: Colors.deepPurple,
                           ),
-                          Padding(
-                            // padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
-                            padding: EdgeInsets.all(5),
-                            child: Text(
-                              "lorem ipsum lorem  ipsum lorem ipsum  lorem ipsum",
-                              textAlign: TextAlign.left,
-                              style:
-                                  TextStyle(color: Colors.grey, fontSize: 13),
-                            ),
+                          Icon(
+                            Icons.home_outlined,
+                            size: 60,
                           ),
+                          Expanded(
+                              child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Padding(
+                                // padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
+                                padding: EdgeInsets.all(5),
+                                child: Text(
+                                  "Shipper",
+                                  style: TextStyle(
+                                      color: Colors.black, fontSize: 16),
+                                ),
+                              ),
+                              Padding(
+                                // padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
+                                padding: EdgeInsets.all(5),
+                                child: Text(
+                                  "lorem ipsum lorem  ipsum lorem ipsum  lorem ipsum",
+                                  textAlign: TextAlign.left,
+                                  style: TextStyle(
+                                      color: Colors.grey, fontSize: 13),
+                                ),
+                              ),
+                            ],
+                          ))
                         ],
-                      ))
-                    ],
-                  )),
+                      ))),
             ),
             Padding(
-              padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
-              child: Container(
-                  width: double.infinity,
-                  // height: 100,
-                  padding: EdgeInsets.fromLTRB(10, 2, 10, 2),
-                  decoration:
-                      BoxDecoration(border: Border.all(color: Colors.black54)),
-                  child: Row(
-                    children: [
-                      Radio(
-                        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                        value: 2,
-                        groupValue: val,
-                        onChanged: (value) {
-                          setState(() {
-                            val = value;
-                          });
-                        },
-                        activeColor: Colors.deepPurple,
-                      ),
-                      Icon(
-                        Icons.car_rental,
-                        size: 60,
-                      ),
-                      Expanded(
-                          child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
+                child: InkWell(
+                  onTap: () {
+                    setState(() {
+                      _groupValue = 2;
+                    });
+                  },
+                  child: Container(
+                      width: double.infinity,
+                      // height: 100,
+                      padding: EdgeInsets.fromLTRB(10, 2, 10, 2),
+                      decoration: BoxDecoration(
+                          border: Border.all(color: Colors.black54)),
+                      child: Row(
                         children: [
-                          Padding(
-                            // padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
-                            padding: EdgeInsets.all(5),
-                            child: Text(
-                              "Transporter",
-                              style:
-                                  TextStyle(color: Colors.black, fontSize: 16),
-                            ),
+                          Radio(
+                            materialTapTargetSize:
+                                MaterialTapTargetSize.shrinkWrap,
+                            value: 2,
+                            groupValue: _groupValue,
+                            onChanged: (newValue) {
+                              setState(() {
+                                _groupValue = newValue;
+                              });
+                            },
+                            activeColor: Colors.deepPurple,
                           ),
-                          Padding(
-                            // padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
-                            padding: EdgeInsets.all(5),
-                            child: Text(
-                              "lorem ipsum lorem  ipsum lorem ipsum  lorem ipsum",
-                              style:
-                                  TextStyle(color: Colors.grey, fontSize: 13),
-                            ),
+                          Icon(
+                            Icons.car_rental,
+                            size: 60,
                           ),
+                          Expanded(
+                              child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Padding(
+                                // padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
+                                padding: EdgeInsets.all(5),
+                                child: Text(
+                                  "Transporter",
+                                  style: TextStyle(
+                                      color: Colors.black, fontSize: 16),
+                                ),
+                              ),
+                              Padding(
+                                // padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
+                                padding: EdgeInsets.all(5),
+                                child: Text(
+                                  "lorem ipsum lorem  ipsum lorem ipsum  lorem ipsum",
+                                  style: TextStyle(
+                                      color: Colors.grey, fontSize: 13),
+                                ),
+                              ),
+                            ],
+                          ))
                         ],
-                      ))
-                    ],
-                  )),
-            ),
+                      )),
+                )),
             Padding(
                 padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
                 child: InkWell(
